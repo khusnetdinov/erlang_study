@@ -13,8 +13,7 @@ new(Height, Width) ->
   {error, {bad_property, {height, Height}, {width, Width}}}.
 
 square(#rectangle{height = Height, width = Width}) ->
-  Height * Width.
-
-
-
+  {ok, Height * Width};
+square(Value) ->
+  {error, {bad_property, Value}}.
 

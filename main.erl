@@ -5,4 +5,6 @@ main() ->
   Circles = [circle:new(Radius) || Radius <- lists:seq(1, 5)],
   Rectangles = [rectangle:new(Side, Side + 1) || Side <- lists:seq(3,8)],
   Shapes = Circles ++ Rectangles,
-  geometry:sum(Shapes).
+  geometry:sum(Shapes),
+  Squares = geometry:squares(Shapes),
+  geometry:filter_less(Squares, 25).
