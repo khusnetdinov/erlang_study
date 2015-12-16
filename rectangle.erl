@@ -1,19 +1,17 @@
 -module(rectangle).
--export([new/1, new/2, square/1]).
--record(rectangle, {height, width}).
+-include("rectangle.hrl").
+-export([
+         new/1,
+         new/2,
+         square/1
+        ]).
 
 new(Side) when Side > 0 ->
-  {ok, #rectangle{height = Side, width = Side}};
-new(Value) ->
-  {error, {bad_property, Value}}.
+  #rectangle{height = Side, width = Side}.
 
 new(Height, Width) when Height > 0, Width > 0 ->
-  {ok, #rectangle{height = Height, width = Width}};
-new(Height, Width) ->
-  {error, {bad_property, {height, Height}, {width, Width}}}.
+  #rectangle{height = Height, width = Width}.
 
 square(#rectangle{height = Height, width = Width}) ->
-  {ok, Height * Width};
-square(Value) ->
-  {error, {bad_property, Value}}.
+  Height * Width.
 

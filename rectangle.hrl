@@ -1,0 +1,2 @@
+-record(rectangle, {height, width}).
+

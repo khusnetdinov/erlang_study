@@ -1,14 +1,12 @@
 -module(circle).
-
--export([new/1,square/1]).
--record(circle, {radius}).
+-include("circle.hrl").
+-export([
+         new/1,
+         square/1
+        ]).
 
 new(Radius) when Radius > 0 ->
-  {ok, #circle{radius = Radius}};
-new(Value) ->
-  {error, {bad_property, Value}}.
+ #circle{radius = Radius}.
 
 square(#circle{radius = Radius}) ->
-  {ok, math:pi() * math:pow(Radius, 2)};
-square(Value) ->
-  {error, {bad_property, Value}}.
+  math:pi() * math:pow(Radius, 2).
